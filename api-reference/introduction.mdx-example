@@ -1,6 +1,6 @@
 ---
-title: 'Token API (Beta)'
-description: 'Example section for showcasing API endpoints'
+title: 'Pinax SQL API (Beta)'
+description: 'Collection of SQL based APIs by built on top of Pinax MCP Server (powered by Substreams).'
 ---
 
 <Note>
