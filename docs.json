@@ -11,14 +11,14 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "API Reference",
+        "tab": "EVM",
         "groups": [
           {
-            "group": "Token API",
+            "group": "EVM",
             "pages": [
-              "api-reference/endpoint/balances",
-              "api-reference/endpoint/transfers",
-              "api-reference/endpoint/holders"
+              "api-reference/endpoint/evm/balances",
+              "api-reference/endpoint/evm/transfers",
+              "api-reference/endpoint/evm/holders"
             ]
           }
         ]
