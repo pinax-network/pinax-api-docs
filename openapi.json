@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://beta.api.pinax.network",
+      "url": "http://localhost:3000",
       "description": "Pinax SQL API Server"
     }
   ],
@@ -26,30 +26,74 @@
       "get": {
         "responses": {
           "200": {
-            "description": "Token Balances",
+            "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "timestamp": {
-                      "type": "number"
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "timestamp": {
+                            "type": "number"
+                          },
+                          "date": {
+                            "type": "string"
+                          },
+                          "contract": {
+                            "type": "string"
+                          },
+                          "amount": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "timestamp",
+                          "date",
+                          "contract",
+                          "amount"
+                        ]
+                      }
                     },
-                    "date": {
-                      "type": "string"
-                    },
-                    "contract": {
-                      "type": "string"
-                    },
-                    "amount": {
-                      "type": "string"
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "statistics": {
+                          "type": "object",
+                          "properties": {
+                            "elapsed": {
+                              "type": "number"
+                            },
+                            "rows_read": {
+                              "type": "number"
+                            },
+                            "bytes_read": {
+                              "type": "number"
+                            }
+                          },
+                          "required": []
+                        },
+                        "rows": {
+                          "type": "number"
+                        },
+                        "rows_before_limit_at_least": {
+                          "type": "number"
+                        },
+                        "request_time": {
+                          "type": "string"
+                        },
+                        "duration_ms": {
+                          "type": "number"
+                        }
+                      },
+                      "required": []
                     }
                   },
                   "required": [
-                    "timestamp",
-                    "date",
-                    "contract",
-                    "amount"
+                    "data"
                   ]
                 },
                 "example": {
@@ -100,38 +144,82 @@
       "get": {
         "responses": {
           "200": {
-            "description": "Token Transfers",
+            "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "timestamp": {
-                      "type": "number"
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "timestamp": {
+                            "type": "number"
+                          },
+                          "date": {
+                            "type": "string"
+                          },
+                          "contract": {
+                            "type": "string"
+                          },
+                          "from": {
+                            "type": "string"
+                          },
+                          "to": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "timestamp",
+                          "date",
+                          "contract",
+                          "from",
+                          "to",
+                          "value"
+                        ]
+                      }
                     },
-                    "date": {
-                      "type": "string"
-                    },
-                    "contract": {
-                      "type": "string"
-                    },
-                    "from": {
-                      "type": "string"
-                    },
-                    "to": {
-                      "type": "string"
-                    },
-                    "value": {
-                      "type": "string"
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "statistics": {
+                          "type": "object",
+                          "properties": {
+                            "elapsed": {
+                              "type": "number"
+                            },
+                            "rows_read": {
+                              "type": "number"
+                            },
+                            "bytes_read": {
+                              "type": "number"
+                            }
+                          },
+                          "required": []
+                        },
+                        "rows": {
+                          "type": "number"
+                        },
+                        "rows_before_limit_at_least": {
+                          "type": "number"
+                        },
+                        "request_time": {
+                          "type": "string"
+                        },
+                        "duration_ms": {
+                          "type": "number"
+                        }
+                      },
+                      "required": []
                     }
                   },
                   "required": [
-                    "timestamp",
-                    "date",
-                    "contract",
-                    "from",
-                    "to",
-                    "value"
+                    "data"
                   ]
                 },
                 "example": {
@@ -184,30 +272,74 @@
       "get": {
         "responses": {
           "200": {
-            "description": "Token Holders",
+            "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "timestamp": {
-                      "type": "number"
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "timestamp": {
+                            "type": "number"
+                          },
+                          "date": {
+                            "type": "string"
+                          },
+                          "contract": {
+                            "type": "string"
+                          },
+                          "amount": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "timestamp",
+                          "date",
+                          "contract",
+                          "amount"
+                        ]
+                      }
                     },
-                    "date": {
-                      "type": "string"
-                    },
-                    "contract": {
-                      "type": "string"
-                    },
-                    "amount": {
-                      "type": "string"
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "statistics": {
+                          "type": "object",
+                          "properties": {
+                            "elapsed": {
+                              "type": "number"
+                            },
+                            "rows_read": {
+                              "type": "number"
+                            },
+                            "bytes_read": {
+                              "type": "number"
+                            }
+                          },
+                          "required": []
+                        },
+                        "rows": {
+                          "type": "number"
+                        },
+                        "rows_before_limit_at_least": {
+                          "type": "number"
+                        },
+                        "request_time": {
+                          "type": "string"
+                        },
+                        "duration_ms": {
+                          "type": "number"
+                        }
+                      },
+                      "required": []
                     }
                   },
                   "required": [
-                    "timestamp",
-                    "date",
-                    "contract",
-                    "amount"
+                    "data"
                   ]
                 },
                 "example": {
@@ -391,7 +523,7 @@
                 },
                 "example": {
                   "version": "0.1.0",
-                  "commit": "b021878"
+                  "commit": "3d192b3"
                 }
               }
             }
