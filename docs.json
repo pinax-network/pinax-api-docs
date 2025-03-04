@@ -14,12 +14,17 @@
         "tab": "API Reference",
         "groups": [
           {
-            "group": "EVM",
+            "group": "Endpoints",
             "pages": [
-              "api-reference/overview",
-              "api-reference/evm/balances",
-              "api-reference/evm/transfers",
-              "api-reference/evm/holders"
+              "quickstart",
+              {
+                "group": "EVM",
+                "pages": [
+                  "evm/balances",
+                  "evm/transfers",
+                  "evm/holders"
+                ]
+              }
             ]
           }
         ]
