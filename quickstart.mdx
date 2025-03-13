@@ -14,17 +14,16 @@ description: 'Get started with Pinax API in just a few steps.'
 
 ## Quickstart
 
-### Overview
-The Pinax Token API lets you access blockchain token information easily via a simple GET request. This guide will walk you through how to set up and test your first API call.
+The Pinax Token API lets you access blockchain token information via a GET request. This guide will walk you through how to set up and test an API call.
 
 ### Prerequisites
-Before you begin, please ensure you have obtained an API Key by signing up on [The Graph Market](https://thegraph.market/).
+Before you begin, get an API Key by signing up on [The Graph Market](https://thegraph.market/).
 
 <Note> Most Unix-like systems come with cURL preinstalled. For Windows, you may need to install cURL. </Note>
 
 ## Using Javascript
 
-Make an API request using **Javascript** by adding the request code to `index.js`. For example:
+Make an API request using **Javascript** by adding the request parameters, and then fetching from the relevant endpoint. For example:
 ```javascript index.js
 const address = "0x2a0c0dbecc7e4d658f48e01e3fa353f44050c208";
 const options = {
@@ -42,7 +41,7 @@ fetch(`https://beta.api.pinax.network/balances/evm/${address}`, options)
 ```
 Make sure to replace `'X-Api-Key': '<...>'` with your API key, replacing the entire `<...>` with your key. 
 
-For example: `'X-Api-Key': '111222333444555666777888999000aaabbbcccdddeeefff'`
+For example: `'X-Api-Key': '111aaa222bbb333ccc444ddd555eee666fff777888999000'`
 
 ## Using cURL (Command Line)
 To make an API request using **cURL**, open your terminal and run the following command. Be sure to replace `<...>` with your actual API key:
@@ -56,7 +55,7 @@ curl --request GET \
 
 ## Authentication
 
-All API endpoints are authenticated using an API key inserted in header as `X-Api-Key`.
+All API endpoints are authenticated using an API key inserted in the header as `X-Api-Key`.
 
 You can obtain an API key by signing up on the [The Graph Market](https://thegraph.market/).
 
@@ -68,10 +67,7 @@ You can obtain an API key by signing up on the [The Graph Market](https://thegra
 }
 ```
 
-## Troubleshooting & Tips
-
-- Invalid API Key:
-Ensure that you have replaced <...> with your actual API key. An error message will indicate if your key is missing or invalid.
+## Troubleshooting
 
 - Debugging:
 If the API call fails, try printing out the full response object for additional error details. For example:
@@ -85,5 +81,3 @@ fetch(`https://beta.api.pinax.network/balances/evm/${address}`, options)
   .catch(err => console.error('Error:', err));
 ```
 
-- Community & Support:
-Join our [Discord](https://discord.gg/pinax) for real-time support, updates, and to share your feedback.
