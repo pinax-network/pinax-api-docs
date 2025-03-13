@@ -15,29 +15,14 @@ description: 'Get started with Pinax API in just a few steps.'
 ## Quickstart
 
 ### Overview
-The Pinax Token API lets you access blockchain token information easily via a simple GET request. This guide will walk you through how to set up your environment and test your first API call.
+The Pinax Token API lets you access blockchain token information easily via a simple GET request. This guide will walk you through how to set up and test your first API call.
 
 ### Prerequisites
-Before you begin, please ensure you have the following installed on your system:
+Before you begin, please ensure you have obtained an API Key by signing up on [The Graph Market](https://thegraph.market/).
 
-- A modern web browser or terminal: For testing API calls.
-- Node.js and npm: To run the JavaScript example. Download Node.js if you don’t have it.
-- cURL: Most Unix-like systems come with cURL preinstalled. For Windows, you may need to install cURL.
-- Additionally, you’ll need an API Key which you can obtain by signing up on [The Graph Market](https://thegraph.market/).
+<Note> Most Unix-like systems come with cURL preinstalled. For Windows, you may need to install cURL. </Note>
 
-### Setting Up Your Environment
-Using JavaScript (Node.js)
-Create a New Directory:
-
-```bash
-mkdir pinax-token-api
-cd pinax-token-api
-```
-Initialize a New Node.js Project:
-
-```bash
-npm init -y
-```
+## Using Javascript
 
 Make an API request using **Javascript** by adding the request code to `index.js`. For example:
 ```javascript index.js
@@ -57,14 +42,7 @@ fetch(`https://beta.api.pinax.network/balances/evm/${address}`, options)
 ```
 Make sure to replace `'X-Api-Key': '<...>'` with your API key, replacing the entire `<...>` with your key. 
 
-For example: `'X-Api-Key': '77c6d67a3d1bca232ac5460fe08b2db0294c3e8fe2ad17b9'`
-
-### Ensure `node-fetch` is installed
-If you are using Node.js v18 or later, the fetch API is built-in. Otherwise, install it with:
-
-```bash
-npm install node-fetch
-```
+For example: `'X-Api-Key': '111222333444555666777888999000aaabbbcccdddeeefff'`
 
 ## Using cURL (Command Line)
 To make an API request using **cURL**, open your terminal and run the following command. Be sure to replace `<...>` with your actual API key:
@@ -93,13 +71,7 @@ You can obtain an API key by signing up on the [The Graph Market](https://thegra
 ## Troubleshooting & Tips
 
 - Invalid API Key:
-Ensure that you have replaced <...> with your actual API key. A common error message will indicate if your key is missing or invalid.
-
-- Network Issues:
-If you experience network errors or timeouts, verify that your internet connection is stable and that there are no firewall restrictions blocking your request.
-
-- Node.js Compatibility:
-If you’re encountering issues with the fetch API in Node.js, check your Node version. For versions older than v18, use the node-fetch package.
+Ensure that you have replaced <...> with your actual API key. An error message will indicate if your key is missing or invalid.
 
 - Debugging:
 If the API call fails, try printing out the full response object for additional error details. For example:
