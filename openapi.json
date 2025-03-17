@@ -1,14 +1,14 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Pinax SQL API (Beta)",
+    "title": "Pinax Token API (Beta)",
     "description": "Collection of SQL based APIs by built on top of Pinax MCP Server (powered by Substreams).",
     "version": "0.1.0"
   },
   "servers": [
     {
-      "url": "http://localhost:3000",
-      "description": "Pinax SQL API Server"
+      "url": "https://token-api.service.pinax.network",
+      "description": "pinax-token-api"
     }
   ],
   "components": {
@@ -44,7 +44,9 @@
                             "type": "string"
                           },
                           "contract": {
-                            "type": "string"
+                            "type": "string",
+                            "minLength": 40,
+                            "maxLength": 42
                           },
                           "amount": {
                             "type": "string"
@@ -111,21 +113,17 @@
           }
         },
         "operationId": "getBalancesEvmByAddress",
-        "description": "Token Balances by Wallet Address",
         "tags": [
           "EVM"
-        ],
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
         ],
         "parameters": [
           {
             "in": "path",
             "name": "address",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "minLength": 40,
+              "maxLength": 42
             },
             "required": true
           },
@@ -133,9 +131,19 @@
             "in": "query",
             "name": "chain_id",
             "schema": {
-              "type": "string"
+              "enum": [
+                "mainnet",
+                "bsc",
+                "base"
+              ]
             },
-            "required": false
+            "required": true
+          }
+        ],
+        "description": "Token Balances by Wallet Address",
+        "security": [
+          {
+            "ApiKeyAuth": []
           }
         ]
       }
@@ -162,13 +170,19 @@
                             "type": "string"
                           },
                           "contract": {
-                            "type": "string"
+                            "type": "string",
+                            "minLength": 40,
+                            "maxLength": 42
                           },
                           "from": {
-                            "type": "string"
+                            "type": "string",
+                            "minLength": 40,
+                            "maxLength": 42
                           },
                           "to": {
-                            "type": "string"
+                            "type": "string",
+                            "minLength": 40,
+                            "maxLength": 42
                           },
                           "value": {
                             "type": "string"
@@ -239,21 +253,17 @@
           }
         },
         "operationId": "getTransfersEvmByAddress",
-        "description": "Token Transfers by Wallet Address",
         "tags": [
           "EVM"
-        ],
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
         ],
         "parameters": [
           {
             "in": "path",
             "name": "address",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "minLength": 40,
+              "maxLength": 42
             },
             "required": true
           },
@@ -261,9 +271,19 @@
             "in": "query",
             "name": "chain_id",
             "schema": {
-              "type": "string"
+              "enum": [
+                "mainnet",
+                "bsc",
+                "base"
+              ]
             },
-            "required": false
+            "required": true
+          }
+        ],
+        "description": "Token Transfers by Wallet Address",
+        "security": [
+          {
+            "ApiKeyAuth": []
           }
         ]
       }
@@ -290,7 +310,9 @@
                             "type": "string"
                           },
                           "contract": {
-                            "type": "string"
+                            "type": "string",
+                            "minLength": 40,
+                            "maxLength": 42
                           },
                           "amount": {
                             "type": "string"
@@ -357,21 +379,17 @@
           }
         },
         "operationId": "getHoldersEvmByContract",
-        "description": "Token Holders by Contract Address",
         "tags": [
           "EVM"
-        ],
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
         ],
         "parameters": [
           {
             "in": "path",
             "name": "contract",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "minLength": 40,
+              "maxLength": 42
             },
             "required": true
           },
@@ -379,9 +397,27 @@
             "in": "query",
             "name": "chain_id",
             "schema": {
+              "enum": [
+                "mainnet",
+                "bsc",
+                "base"
+              ]
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "order_by",
+            "schema": {
               "type": "string"
             },
             "required": false
+          }
+        ],
+        "description": "Token Holders by Contract Address",
+        "security": [
+          {
+            "ApiKeyAuth": []
           }
         ]
       }
@@ -492,11 +528,11 @@
           }
         },
         "operationId": "getHealth",
-        "description": "Get health status of the API",
         "tags": [
           "Monitoring"
         ],
-        "parameters": []
+        "parameters": [],
+        "description": "Get health status of the API"
       }
     },
     "/version": {
@@ -523,18 +559,18 @@
                 },
                 "example": {
                   "version": "0.1.0",
-                  "commit": "3d192b3"
+                  "commit": "eb2eb0a937c5079ed4a182da0e43d0a3392f5760"
                 }
               }
             }
           }
         },
         "operationId": "getVersion",
-        "description": "Get the version of the API",
         "tags": [
           "Monitoring"
         ],
-        "parameters": []
+        "parameters": [],
+        "description": "Get the version of the API"
       }
     }
   }
