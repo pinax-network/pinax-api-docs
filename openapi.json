@@ -37,6 +37,9 @@
                       "items": {
                         "type": "object",
                         "properties": {
+                          "block_num": {
+                            "type": "number"
+                          },
                           "timestamp": {
                             "type": "number"
                           },
@@ -44,19 +47,35 @@
                             "type": "string"
                           },
                           "contract": {
-                            "type": "string",
-                            "minLength": 40,
-                            "maxLength": 42
+                            "type": "string"
                           },
                           "amount": {
                             "type": "string"
+                          },
+                          "symbol": {
+                            "type": "string"
+                          },
+                          "decimals": {
+                            "type": "number"
+                          },
+                          "chain_id": {
+                            "type": "string",
+                            "enum": [
+                              "mainnet",
+                              "bsc",
+                              "base"
+                            ]
                           }
                         },
                         "required": [
+                          "block_num",
                           "timestamp",
                           "date",
                           "contract",
-                          "amount"
+                          "amount",
+                          "symbol",
+                          "decimals",
+                          "chain_id"
                         ]
                       }
                     },
@@ -75,8 +94,7 @@
                             "bytes_read": {
                               "type": "number"
                             }
-                          },
-                          "required": []
+                          }
                         },
                         "rows": {
                           "type": "number"
@@ -90,8 +108,7 @@
                         "duration_ms": {
                           "type": "number"
                         }
-                      },
-                      "required": []
+                      }
                     }
                   },
                   "required": [
@@ -122,8 +139,7 @@
             "name": "address",
             "schema": {
               "type": "string",
-              "minLength": 40,
-              "maxLength": 42
+              "pattern": "^(0[xX])?[0-9a-fA-F]{40}$"
             },
             "required": true
           },
@@ -131,13 +147,40 @@
             "in": "query",
             "name": "chain_id",
             "schema": {
+              "type": "string",
               "enum": [
                 "mainnet",
                 "bsc",
                 "base"
               ]
-            },
-            "required": true
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 500,
+              "default": 10
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 500,
+              "default": 0
+            }
+          },
+          {
+            "in": "query",
+            "name": "contract",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "description": "Token Balances by Wallet Address",
@@ -163,6 +206,9 @@
                       "items": {
                         "type": "object",
                         "properties": {
+                          "block_num": {
+                            "type": "number"
+                          },
                           "timestamp": {
                             "type": "number"
                           },
@@ -170,31 +216,43 @@
                             "type": "string"
                           },
                           "contract": {
-                            "type": "string",
-                            "minLength": 40,
-                            "maxLength": 42
+                            "type": "string"
                           },
                           "from": {
-                            "type": "string",
-                            "minLength": 40,
-                            "maxLength": 42
+                            "type": "string"
                           },
                           "to": {
-                            "type": "string",
-                            "minLength": 40,
-                            "maxLength": 42
-                          },
-                          "value": {
                             "type": "string"
+                          },
+                          "amount": {
+                            "type": "string"
+                          },
+                          "symbol": {
+                            "type": "string"
+                          },
+                          "decimals": {
+                            "type": "number"
+                          },
+                          "chain_id": {
+                            "type": "string",
+                            "enum": [
+                              "mainnet",
+                              "bsc",
+                              "base"
+                            ]
                           }
                         },
                         "required": [
+                          "block_num",
                           "timestamp",
                           "date",
                           "contract",
                           "from",
                           "to",
-                          "value"
+                          "amount",
+                          "symbol",
+                          "decimals",
+                          "chain_id"
                         ]
                       }
                     },
@@ -213,8 +271,7 @@
                             "bytes_read": {
                               "type": "number"
                             }
-                          },
-                          "required": []
+                          }
                         },
                         "rows": {
                           "type": "number"
@@ -228,8 +285,7 @@
                         "duration_ms": {
                           "type": "number"
                         }
-                      },
-                      "required": []
+                      }
                     }
                   },
                   "required": [
@@ -262,8 +318,7 @@
             "name": "address",
             "schema": {
               "type": "string",
-              "minLength": 40,
-              "maxLength": 42
+              "pattern": "^(0[xX])?[0-9a-fA-F]{40}$"
             },
             "required": true
           },
@@ -271,13 +326,50 @@
             "in": "query",
             "name": "chain_id",
             "schema": {
+              "type": "string",
               "enum": [
                 "mainnet",
                 "bsc",
                 "base"
               ]
-            },
-            "required": true
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 500,
+              "default": 10
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 500,
+              "default": 0
+            }
+          },
+          {
+            "in": "query",
+            "name": "age",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 180,
+              "default": 30
+            }
+          },
+          {
+            "in": "query",
+            "name": "contract",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "description": "Token Transfers by Wallet Address",
@@ -303,26 +395,45 @@
                       "items": {
                         "type": "object",
                         "properties": {
+                          "block_num": {
+                            "type": "number"
+                          },
                           "timestamp": {
                             "type": "number"
                           },
                           "date": {
                             "type": "string"
                           },
-                          "contract": {
-                            "type": "string",
-                            "minLength": 40,
-                            "maxLength": 42
+                          "address": {
+                            "type": "string"
                           },
                           "amount": {
                             "type": "string"
+                          },
+                          "symbol": {
+                            "type": "string"
+                          },
+                          "decimals": {
+                            "type": "number"
+                          },
+                          "chain_id": {
+                            "type": "string",
+                            "enum": [
+                              "mainnet",
+                              "bsc",
+                              "base"
+                            ]
                           }
                         },
                         "required": [
+                          "block_num",
                           "timestamp",
                           "date",
-                          "contract",
-                          "amount"
+                          "address",
+                          "amount",
+                          "symbol",
+                          "decimals",
+                          "chain_id"
                         ]
                       }
                     },
@@ -341,8 +452,7 @@
                             "bytes_read": {
                               "type": "number"
                             }
-                          },
-                          "required": []
+                          }
                         },
                         "rows": {
                           "type": "number"
@@ -356,8 +466,7 @@
                         "duration_ms": {
                           "type": "number"
                         }
-                      },
-                      "required": []
+                      }
                     }
                   },
                   "required": [
@@ -367,10 +476,14 @@
                 "example": {
                   "data": [
                     {
-                      "contract": "0x27695e09149adc738a978e9a678f99e4c39e9eb9",
-                      "amount": "1239979319084415",
-                      "timestamp": 1529002377,
-                      "date": "2018-06-14"
+                      "block_num": 20581510,
+                      "timestamp": 1724297855,
+                      "date": "2024-08-22",
+                      "contract": "0xc944e90c64b2c07662a292be6244bdf05cda44a7",
+                      "amount": "120000000000000000000000",
+                      "decimals": 18,
+                      "symbol": "GRT",
+                      "chain_id": "mainnet"
                     }
                   ]
                 }
@@ -388,8 +501,7 @@
             "name": "contract",
             "schema": {
               "type": "string",
-              "minLength": 40,
-              "maxLength": 42
+              "pattern": "^(0[xX])?[0-9a-fA-F]{40}$"
             },
             "required": true
           },
@@ -397,21 +509,40 @@
             "in": "query",
             "name": "chain_id",
             "schema": {
+              "type": "string",
               "enum": [
                 "mainnet",
                 "bsc",
                 "base"
               ]
-            },
-            "required": true
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 500,
+              "default": 10
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 500,
+              "default": 0
+            }
           },
           {
             "in": "query",
             "name": "order_by",
             "schema": {
               "type": "string"
-            },
-            "required": false
+            }
           }
         ],
         "description": "Token Holders by Contract Address",
@@ -559,7 +690,7 @@
                 },
                 "example": {
                   "version": "0.1.0",
-                  "commit": "eb2eb0a937c5079ed4a182da0e43d0a3392f5760"
+                  "commit": "unknown"
                 }
               }
             }
