@@ -13,10 +13,10 @@
   ],
   "components": {
     "securitySchemes": {
-      "ApiKeyAuth": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "X-Api-Key"
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     },
     "schemas": {}
@@ -58,7 +58,7 @@
                           "decimals": {
                             "type": "number"
                           },
-                          "chain_id": {
+                          "network_id": {
                             "type": "string",
                             "enum": [
                               "mainnet",
@@ -75,7 +75,7 @@
                           "amount",
                           "symbol",
                           "decimals",
-                          "chain_id"
+                          "network_id"
                         ]
                       }
                     },
@@ -118,10 +118,14 @@
                 "example": {
                   "data": [
                     {
-                      "contract": "0xd6e1401a079922469e9b965cb090ea6ff64c6839",
-                      "amount": "8974208837245497768568420",
-                      "timestamp": 1529003200,
-                      "date": "2018-06-14"
+                      "block_num": 22067152,
+                      "timestamp": 1742221043,
+                      "date": "2025-03-17",
+                      "contract": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+                      "amount": "159482036593475716150538",
+                      "decimals": 18,
+                      "symbol": "ETH",
+                      "network_id": "mainnet"
                     }
                   ]
                 }
@@ -145,7 +149,7 @@
           },
           {
             "in": "query",
-            "name": "chain_id",
+            "name": "network_id",
             "schema": {
               "type": "string",
               "enum": [
@@ -186,7 +190,7 @@
         "description": "Token Balances by Wallet Address",
         "security": [
           {
-            "ApiKeyAuth": []
+            "bearerAuth": []
           }
         ]
       }
@@ -233,7 +237,7 @@
                           "decimals": {
                             "type": "number"
                           },
-                          "chain_id": {
+                          "network_id": {
                             "type": "string",
                             "enum": [
                               "mainnet",
@@ -252,7 +256,7 @@
                           "amount",
                           "symbol",
                           "decimals",
-                          "chain_id"
+                          "network_id"
                         ]
                       }
                     },
@@ -295,12 +299,16 @@
                 "example": {
                   "data": [
                     {
-                      "contract": "0x27695e09149adc738a978e9a678f99e4c39e9eb9",
-                      "from": "0x2b5634c42055806a59e9107ed44d43c426e58258",
-                      "to": "0xa78c4208fe4fedd86fc90fad93d6fb154c3936a4",
-                      "value": "8000000000000",
-                      "timestamp": 1529002377,
-                      "date": "2018-06-14"
+                      "block_num": 22049790,
+                      "timestamp": 1742011715,
+                      "date": "2025-03-15",
+                      "contract": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                      "from": "0x5a52e96bacdabb82fd05763e25335261b270efcb",
+                      "to": "0x28c6c06298d514db089934071355e5743bf21d60",
+                      "amount": "200000000000000",
+                      "decimals": 6,
+                      "symbol": "USDC",
+                      "network_id": "mainnet"
                     }
                   ]
                 }
@@ -324,7 +332,7 @@
           },
           {
             "in": "query",
-            "name": "chain_id",
+            "name": "network_id",
             "schema": {
               "type": "string",
               "enum": [
@@ -375,7 +383,7 @@
         "description": "Token Transfers by Wallet Address",
         "security": [
           {
-            "ApiKeyAuth": []
+            "bearerAuth": []
           }
         ]
       }
@@ -416,7 +424,7 @@
                           "decimals": {
                             "type": "number"
                           },
-                          "chain_id": {
+                          "network_id": {
                             "type": "string",
                             "enum": [
                               "mainnet",
@@ -433,7 +441,7 @@
                           "amount",
                           "symbol",
                           "decimals",
-                          "chain_id"
+                          "network_id"
                         ]
                       }
                     },
@@ -483,7 +491,7 @@
                       "amount": "120000000000000000000000",
                       "decimals": 18,
                       "symbol": "GRT",
-                      "chain_id": "mainnet"
+                      "network_id": "mainnet"
                     }
                   ]
                 }
@@ -507,7 +515,7 @@
           },
           {
             "in": "query",
-            "name": "chain_id",
+            "name": "network_id",
             "schema": {
               "type": "string",
               "enum": [
@@ -548,7 +556,7 @@
         "description": "Token Holders by Contract Address",
         "security": [
           {
-            "ApiKeyAuth": []
+            "bearerAuth": []
           }
         ]
       }
@@ -557,7 +565,7 @@
       "get": {
         "responses": {
           "200": {
-            "description": "Health status of the API",
+            "description": "Successful Response",
             "content": {
               "text/plain": {
                 "schema": {
@@ -670,7 +678,7 @@
       "get": {
         "responses": {
           "200": {
-            "description": "The version of the API",
+            "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -702,6 +710,113 @@
         ],
         "parameters": [],
         "description": "Get the version of the API"
+      }
+    },
+    "/networks": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "networks": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "fullName": {
+                            "type": "string"
+                          },
+                          "shortName": {
+                            "type": "string"
+                          },
+                          "caip2Id": {
+                            "type": "string"
+                          },
+                          "networkType": {
+                            "type": "string"
+                          },
+                          "icon": {
+                            "type": "object",
+                            "properties": {
+                              "web3Icons": {
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "name"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "web3Icons"
+                            ]
+                          },
+                          "alias": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "fullName",
+                          "shortName",
+                          "caip2Id",
+                          "networkType",
+                          "icon",
+                          "alias"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "networks"
+                  ]
+                },
+                "example": {
+                  "networks": [
+                    {
+                      "id": "mainnet",
+                      "fullName": "Ethereum Mainnet",
+                      "shortName": "Ethereum",
+                      "networkType": "mainnet",
+                      "nativeToken": "ETH",
+                      "caip2Id": "eip155:1",
+                      "icon": {
+                        "web3Icons": {
+                          "name": "ethereum"
+                        }
+                      },
+                      "aliases": [
+                        "ethereum",
+                        "eth",
+                        "eth-mainnet",
+                        "evm-1"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "operationId": "getNetworks",
+        "tags": [
+          "Monitoring"
+        ],
+        "parameters": [],
+        "description": "Get supported networks of the API"
       }
     }
   }
