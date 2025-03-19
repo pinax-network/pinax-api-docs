@@ -18,6 +18,13 @@
             "pages": [
               "quickstart",
               {
+                "group": "MCP",
+                "pages": [
+                  "mcp/claude",
+                  "mcp/sse"
+                ]
+              },
+              {
                 "group": "EVM",
                 "pages": [
                   "evm/balances",
