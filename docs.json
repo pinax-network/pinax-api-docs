@@ -23,8 +23,16 @@
                   "evm/balances",
                   "evm/transfers",
                   "evm/holders",
-                  "evm/tokens",
-                  "evm/networks"
+                  "evm/tokens"
+
+                ]
+              },
+              {
+                "group": "Monitoring",
+                "pages": [
+                  "monitoring/networks",
+                  "monitoring/version",
+                  "monitoring/health"
                 ]
               }
             ]
