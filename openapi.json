@@ -561,6 +561,162 @@
         ]
       }
     },
+    "/tokens/evm/{contract}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "block_num": {
+                            "type": "number"
+                          },
+                          "timestamp": {
+                            "type": "number"
+                          },
+                          "date": {
+                            "type": "string"
+                          },
+                          "address": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "symbol": {
+                            "type": "string"
+                          },
+                          "decimals": {
+                            "type": "number"
+                          },
+                          "total_supply": {
+                            "type": "string"
+                          },
+                          "holders": {
+                            "type": "number"
+                          },
+                          "network_id": {
+                            "type": "string",
+                            "enum": [
+                              "mainnet",
+                              "bsc",
+                              "base"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "block_num",
+                          "timestamp",
+                          "date",
+                          "address",
+                          "name",
+                          "symbol",
+                          "decimals",
+                          "total_supply",
+                          "holders",
+                          "network_id"
+                        ]
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "statistics": {
+                          "type": "object",
+                          "properties": {
+                            "elapsed": {
+                              "type": "number"
+                            },
+                            "rows_read": {
+                              "type": "number"
+                            },
+                            "bytes_read": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "rows": {
+                          "type": "number"
+                        },
+                        "rows_before_limit_at_least": {
+                          "type": "number"
+                        },
+                        "request_time": {
+                          "type": "string"
+                        },
+                        "duration_ms": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ]
+                },
+                "example": {
+                  "data": [
+                    {
+                      "date": "2025-03-18",
+                      "timestamp": "2025-03-18 15:46:59",
+                      "block_num": 22074750,
+                      "address": "0xc944e90c64b2c07662a292be6244bdf05cda44a7",
+                      "name": "Graph Token",
+                      "symbol": "GRT",
+                      "decimals": 18,
+                      "network_id": "mainnet",
+                      "total_supply": "10803355950136852966436018411",
+                      "holders": 170086
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "operationId": "getTokensEvmByContract",
+        "tags": [
+          "EVM"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "contract",
+            "schema": {
+              "type": "string",
+              "pattern": "^(0[xX])?[0-9a-fA-F]{40}$"
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "network_id",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "mainnet",
+                "bsc",
+                "base"
+              ]
+            }
+          }
+        ],
+        "description": "Token Holders by Contract Address",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/health": {
       "get": {
         "responses": {
