@@ -23,7 +23,8 @@
                   "evm/balances",
                   "evm/transfers",
                   "evm/holders",
-                  "evm/tokens"
+                  "evm/tokens",
+                  "evm/networks"
                 ]
               }
             ]
