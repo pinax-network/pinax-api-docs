@@ -20,8 +20,7 @@
               {
                 "group": "MCP",
                 "pages": [
-                  "mcp/claude",
-                  "mcp/sse"
+                  "mcp/claude"
                 ]
               },
               {
