@@ -22,7 +22,8 @@
                 "pages": [
                   "evm/balances",
                   "evm/transfers",
-                  "evm/holders"
+                  "evm/holders",
+                  "evm/tokens"
                 ]
               }
             ]
