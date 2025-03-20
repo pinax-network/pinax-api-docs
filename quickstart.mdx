@@ -14,8 +14,11 @@ description: 'Get started with Pinax API in just a few steps.'
 
 ## Quickstart
 
-The Pinax Token API lets you access blockchain token information via a GET request. This guide will walk you through how to set up and test an API call.
+The Pinax Token API lets you access blockchain token information via a GET request. This guide is designed to help you quickly integrate the Token API into your application. 
 
+The Token API provides access to on‑chain token data, including balances, holders, detailed token metadata, and historical transfers. This API also uses the Model Context Protocol (MCP) to enrich raw blockchain data with contextual insights using AI tools, such as Claude.
+
+Live blockchain data is typically available within 1-2 seconds of block propagation. 
 ### Prerequisites
 Before you begin, get an API Key by signing up on [The Graph Market](https://thegraph.market/).
 
@@ -30,7 +33,7 @@ const options = {
   method: 'GET',
   headers: {
     'Accept': 'application/json',
-    'X-Api-Key': '<...>'
+    'X-Api-Key': 'f98f••••••••••••••••••••5247'
   }
 };
 
@@ -39,9 +42,7 @@ fetch(`https://beta.api.pinax.network/balances/evm/${address}`, options)
   .then(response => console.log(response))
   .catch(err => console.error(err));
 ```
-Make sure to replace `'X-Api-Key': '<...>'` with your API key, replacing the entire `<...>` with your key. 
-
-For example: `'X-Api-Key': '111aaa222bbb333ccc444ddd555eee666fff777888999000'`
+Make sure to replace `'X-Api-Key': 'f98f••••••••••••••••••••5247'` with your API key. 
 
 ## Using cURL (Command Line)
 To make an API request using **cURL**, open your command line and run the following command. Be sure to replace `<...>` with your actual API key:
@@ -62,7 +63,7 @@ You can obtain an API key by signing up on the [The Graph Market](https://thegra
 ```json
 {
   "headers": {
-    "X-Api-Key": "<...>"
+    "X-Api-Key": "f98f••••••••••••••••••••5247"
   }
 }
 ```
