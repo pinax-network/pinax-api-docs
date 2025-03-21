@@ -7,6 +7,42 @@ sidebarTitle: 'Token Transfers'
 'og:description': 'The Token Transfers API delivers latest transfers of native and ERC20 tokens to & from an account from a supported EVM blockchain.'
 ---
 
-The Token Transfers API delivers the latest transfers of native and ERC20 tokens to and from an account on a supported EVM blockchain. This endpoint is ideal for monitoring transaction activity.
+The EVM Transfers endpoint provides access to historical token transfer events for a specified address. This endpoint is ideal for tracking transaction history and analyzing token movements over time.
+### Endpoint Overview
+Method: `GET`
 
-See supported [EVM blockchains](https://pinax.network/en/chain).
+Path: `/transfers/evm/{address}`
+
+Retrieves a list of token transfer events associated with the given address.
+
+### Request Parameters 
+| Parameter | Type | Description | Notes |
+|-----------|------|-------------|-------|
+| address | (string, required) | The wallet address to query for token transfers. | Must be a valid hexadecimal address. Example: 0x1234abcd... |
+| network_id | (string, optional) | Specifies the blockchain network to query. | Use this parameter when you need data from a specific EVM-compatible network. |
+| limit | (integer, optional) | The maximum number of records to return. | Useful for controlling response size and paginating results. |
+| offset | (integer, optional) | The number of records to skip before returning results. | Use together with limit for pagination. |
+| age | (integer, optional) | The number of days in the past to query | Defaults to `30`. Maximum is `180` |
+
+### Response Parameters
+
+| Parameter | Type | Description | Notes |
+|-----------|------|-------------|-------|
+| block_num | (integer) | The block number of the most recent balance change for the data queried. | Block numbers will differ between blockchains |
+| timestamp | (integer) | The Unix timestamp, in seconds,  of the most recent balance change for the data queried. | Equals the number of seconds elapsed since January 1, 1970, 00:00:00 UTC. |
+| date | (string) | The date of the block from which data was queried. | In the format "YYYY-MM-DD". |
+| contract | (string) | The contract involved in the token transfer. | Returned in hexadecimal. Example: 0x1234abcd... |
+| from | (string) | The address that initiated the token transfer. | Returned in hexadecimal. Example: 0x1234abcd... |
+| to | (string) | The address that received the token transfer. | Returned in hexadecimal. Example: 0x1234abcd... |
+| amount | (string) | The amount of tokens sent in the transfer. | Returned as an integer, in the smallest divisible units of the token. |
+| decimals | (integer) | The number of decimal places of precision for the specified token. | Use together with amount to determine token amount. |
+| symbol | (string) | The number of records to skip before returning results. | Use together with limit for pagination. |
+| network_id | (string) | The number of records to skip before returning results. | Use together with limit for pagination. |
+
+
+### Additional Notes
+
+The field `amount` returns an integer number. This is the number of smallest divisible units of the token that is held by the address. Use the `decimals` field to determine how many of those digits are to the right of the decimal point.
+
+For example, the token for Ethereum has 18 decimal places, and the smallest unit of Ether is one Wei. The `amount` field will return the number of Wei, not the number of Ether. To determine the number of Ether, you would use `decimals` to determine how far from the last digit the decimal is placed, in this case 18 digits.
+
