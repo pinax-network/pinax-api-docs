@@ -7,6 +7,40 @@ sidebarTitle: 'Token Balances'
 'og:description': 'The Token Balances API delivers latest balances of native and ERC20 tokens held by an account from a supported EVM blockchain.'
 ---
 
-The Token Balances API delivers the latest balances of native and ERC20 tokens held by an account from a supported EVM blockchain. This endpoint is useful for quickly obtaining a snapshot of an account's current token holdings.
+The EVM Balances endpoint returns the current balances of native and ERC-20 tokens held by a specified wallet address on an Ethereum-compatible blockchain. The endpoint provides a snapshot of an account's current token holdings.
 
-See supported [EVM blockchains](https://pinax.network/en/chain).
+### Endpoint Overview
+Method: `GET`
+
+Path: `/balances/evm/{address}`
+
+Retrieves a list of tokens along with the respective balances for the given wallet address.
+
+### Request Parameters 
+| Parameter | Type | Description | Notes |
+|-----------|------|-------------|-------|
+| address | (string, required) | The wallet address to query for token balances. | Must be a valid hexadecimal address. Example: 0x1234abcd... |
+| chain | (string, optional) | Specifies the blockchain network to query. | Use this parameter when you need data from a specific EVM-compatible network. |
+| limit | (number, optional) | The maximum number of records to return. | Useful for controlling response size and paginating results. |
+| offset | (number, optional) | The number of records to skip before returning results. | Use together with limit for pagination. |
+| contract | (string, optional) | The contract from which results are returned | Use to filter for specific token contracts |
+
+### Response Parameters
+
+| Parameter | Type | Description | Notes |
+|-----------|------|-------------|-------|
+| block_num | (number) | The block number from which data was queried. | Block numbers will differ between blockchains |
+| timestamp | (number) | The Unix timestamp of the block from which data was queried, in seconds. | Equals the number of seconds elapsed since January 1, 1970, 00:00:00 UTC. |
+| date | (string) | The date of the block from which data was queried. | In the format "YYYY-MM-DD". |
+| contract | (string) | The contract for the returned token balance. | Returned in hexadecimal. Example: 0x1234abcd... |
+| amount | (string) | The amount of tokens held by the address. | Returned as an integer, in the smallest divisible units of the token. |
+| decimals | (number) | The number of decimal places of precision for the specified token. | Use together with amount to determine token amount. |
+| symbol | (string) | The number of records to skip before returning results. | Use together with limit for pagination. |
+| network_id | (string) | The number of records to skip before returning results. | Use together with limit for pagination. |
+
+
+### Additional Notes:
+
+The field `amount` returns an integer number. This is the number of smallest divisible units of the token that is held by the address. Use the `decimals` field to determine how many of those digits are to the right of the decimal point.
+
+For example, the token for Ethereum has 18 decimal places, and the smallest unit of Ether is one Wei. The `amount` field will return the number of Wei, not the number of Ether. To determine the number of Ether, you would use `decimals` to determine how far from the last digit the decimal is placed, in this case 18 digits.
