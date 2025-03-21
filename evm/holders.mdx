@@ -2,9 +2,6 @@
 title: 'Token Holders'
 openapi: 'GET /holders/evm/{contract}'
 sidebarTitle: 'Token Holders'
-'og:image': 'https://github.com/user-attachments/assets/fbb599a5-27d5-4c77-8c04-698d836c8f64'
-'twitter:image': 'https://github.com/user-attachments/assets/fbb599a5-27d5-4c77-8c04-698d836c8f64'
-'og:description': 'The Token Holders API returns a ranked list of largest token holders of a specific ERC-20 token contract from a supported EVM blockchain.'
 ---
 
 The EVM Holders endpoint provides information about the addresses holding a specific token, including each holder’s balance. This is useful for analyzing token distribution for a particular contract.
@@ -16,7 +13,7 @@ Path: /holders/evm/{contract}
 
 Description: Retrieves token holder data for a given token contract address.
 
-### Request Parameters 
+### Request Parameters
 | Parameter | Type | Description | Notes |
 |-----------|------|-------------|-------|
 | contract | (string, required) | The contract address to query for token holders. | Must be a valid hexadecimal address. Example: 0x1234abcd... |

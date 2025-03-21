@@ -2,9 +2,6 @@
 title: 'Token Balances'
 openapi: 'get /balances/evm/{address}'
 sidebarTitle: 'Token Balances'
-'og:image': 'https://github.com/user-attachments/assets/fbb599a5-27d5-4c77-8c04-698d836c8f64'
-'twitter:image': 'https://github.com/user-attachments/assets/fbb599a5-27d5-4c77-8c04-698d836c8f64'
-'og:description': 'The Token Balances API delivers latest balances of native and ERC20 tokens held by an account from a supported EVM blockchain.'
 ---
 
 The EVM Balances endpoint returns the current balances of native and ERC-20 tokens held by a specified wallet address on an Ethereum-compatible blockchain. The endpoint provides a snapshot of an account's current token holdings.
@@ -16,7 +13,7 @@ Path: `/balances/evm/{address}`
 
 Retrieves a list of tokens along with the respective balances for the given wallet address.
 
-### Request Parameters 
+### Request Parameters
 | Parameter | Type | Description | Notes |
 |-----------|------|-------------|-------|
 | address | (string, required) | The wallet address to query for token balances. | Must be a valid hexadecimal address. Example: 0x1234abcd... |

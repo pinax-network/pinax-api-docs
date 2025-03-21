@@ -1,13 +1,21 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Pinax Docs",
+  "name": "Token API Docs",
   "colors": {
     "primary": "#6923EB",
     "light": "#8FFFEB",
     "dark": "#0F0F0F"
   },
   "favicon": "/favicon.png",
+  "seo": {
+    "metatags": {
+        "og:image": "https://github.com/user-attachments/assets/bfe2ee9b-b71c-4ab5-bf89-7ebff408a4fc",
+        "twitter:image": "https://github.com/user-attachments/assets/bfe2ee9b-b71c-4ab5-bf89-7ebff408a4fc",
+        "description": "Power your apps with real-time token data",
+        "og:description": "Power your apps with real-time token data"
+    }
+  },
   "navigation": {
     "tabs": [
       {
@@ -50,17 +58,17 @@
       "anchors": [
         {
           "anchor": "Chains",
-          "href": "https://pinax.network/en/chain",
+          "href": "https://thegraph.com/networks",
           "icon": "link"
         },
         {
           "anchor": "Community",
-          "href": "https://discord.gg/pinax",
+          "href": "https://discord.gg/graphprotocol",
           "icon": "discord"
         },
         {
           "anchor": "Blog",
-          "href": "https://blog.pinax.network/",
+          "href": "https://thegraph.com/blog/",
           "icon": "newspaper"
         }
       ]
@@ -74,20 +82,19 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:info@pinax.network"
+        "href": "mailto:info@thegraph.com"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "http://app.pinax.network"
+      "href": "https://thegraph.market/"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/PinaxNetwork",
-      "github": "https://github.com/pinax-network",
-      "linkedin": "https://linkedin.com/company/pinax-network"
+      "x": "https://x.com/graphprotocol",
+      "github": "https://github.com/graphprotocol/"
     }
   }
 }

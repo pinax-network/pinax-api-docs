@@ -2,9 +2,6 @@
 title: 'Token Transfers'
 openapi: 'GET /transfers/evm/{address}'
 sidebarTitle: 'Token Transfers'
-'og:image': 'https://github.com/user-attachments/assets/fbb599a5-27d5-4c77-8c04-698d836c8f64'
-'twitter:image': 'https://github.com/user-attachments/assets/fbb599a5-27d5-4c77-8c04-698d836c8f64'
-'og:description': 'The Token Transfers API delivers latest transfers of native and ERC20 tokens to & from an account from a supported EVM blockchain.'
 ---
 
 The EVM Transfers endpoint provides access to historical token transfer events for a specified address. This endpoint is ideal for tracking transaction history and analyzing token movements over time.
@@ -15,7 +12,7 @@ Path: `/transfers/evm/{address}`
 
 Retrieves a list of token transfer events associated with the given address.
 
-### Request Parameters 
+### Request Parameters
 | Parameter | Type | Description | Notes |
 |-----------|------|-------------|-------|
 | address | (string, required) | The wallet address to query for token transfers. | Must be a valid hexadecimal address. Example: 0x1234abcd... |
