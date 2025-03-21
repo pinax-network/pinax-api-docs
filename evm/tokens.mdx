@@ -9,4 +9,35 @@ sidebarTitle: 'Tokens'
 
 The Tokens API delivers contract metadata for a specific ERC-20 token contract from a supported EVM blockchain.
 
-See supported [EVM blockchains](https://pinax.network/en/chain).
+
+### Endpoint Overview
+Method: `GET`
+
+Path: `/tokens/evm/{contract}`
+
+Provides metadata for a given token, including its name, symbol, decimals, and total supply.
+
+### Request Parameters 
+| Parameter | Type | Description | Notes |
+|-----------|------|-------------|-------|
+| contract | (string, required) | The wallet address to query for token balances. | Must be a valid hexadecimal address. Example: 0x1234abcd... |
+| network_id | (string, optional) | Specifies the blockchain network to query. | Use this parameter when you need data from a specific EVM-compatible network. |
+
+### Response Parameters
+
+| Parameter | Type | Description | Notes |
+|-----------|------|-------------|-------|
+| block_num | (number) | The block number of the most recent balance change for the data queried. | Block numbers will differ between blockchains |
+| timestamp | (number) | The Unix timestamp, in seconds,  of the most recent balance change for the data queried. | Equals the number of seconds elapsed since January 1, 1970, 00:00:00 UTC. |
+| date | (string) | The date of the block from which data was queried. | In the format "YYYY-MM-DD". |
+| address | (string) | The address for the token contract returned. | Returned in hexadecimal. Example: 0x1234abcd... |
+| name | (string) | The name of the token. | Results come from sources that may not be on-chain. |
+| decimals | (number) | The number of decimal places of precision for the specified token. | Use together with `total supply` to determine token amount. |
+| symbol | (string) | The number of records to skip before returning results. | Use together with limit for pagination. |
+| total_supply | (string) | The amount of tokens created by the smart contract | Returned as an integer, in the smallest divisible units of the token. |
+| network_id | (string) | The number of records to skip before returning results. | Use together with limit for pagination. |
+
+### Additional Notes
+The field amount returns an integer number. This is the number of smallest divisible units of the token that is held by the address. Use the decimals field to determine how many of those digits are to the right of the decimal point.
+
+For example, the token for Ethereum has 18 decimal places, and the smallest unit of Ether is one Wei. The `amount` field will return the number of Wei, not the number of Ether. To determine the number of Ether, you would use `decimals` to determine how far from the last digit the decimal is placed, in this case 18 digits.
