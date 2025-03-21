@@ -29,8 +29,8 @@ Retrieves a list of tokens along with the respective balances for the given wall
 
 | Parameter | Type | Description | Notes |
 |-----------|------|-------------|-------|
-| block_num | (number) | The block number from which data was queried. | Block numbers will differ between blockchains |
-| timestamp | (number) | The Unix timestamp of the block from which data was queried, in seconds. | Equals the number of seconds elapsed since January 1, 1970, 00:00:00 UTC. |
+| block_num | (number) | The block number of the most recent balance change for the data queried. | Block numbers will differ between blockchains |
+| timestamp | (number) | The Unix timestamp, in seconds,  of the most recent balance change for the data queried. | Equals the number of seconds elapsed since January 1, 1970, 00:00:00 UTC. |
 | date | (string) | The date of the block from which data was queried. | In the format "YYYY-MM-DD". |
 | contract | (string) | The contract for the returned token balance. | Returned in hexadecimal. Example: 0x1234abcd... |
 | amount | (string) | The amount of tokens held by the address. | Returned as an integer, in the smallest divisible units of the token. |
