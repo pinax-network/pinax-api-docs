@@ -1,8 +1,8 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Pinax Token API (Beta)",
-    "description": "Collection of SQL based APIs by built on top of Pinax MCP Server (powered by Substreams).",
+    "title": "Token API (Beta)",
+    "description": "Power your apps with real-time token data.",
     "version": "0.1.0"
   },
   "servers": [
@@ -65,9 +65,10 @@
                           "network_id": {
                             "type": "string",
                             "enum": [
-                              "mainnet",
+                              "arbitrum-one",
+                              "base",
                               "bsc",
-                              "base"
+                              "mainnet"
                             ]
                           }
                         },
@@ -83,33 +84,16 @@
                         ]
                       }
                     },
-                    "meta": {
+                    "statistics": {
                       "type": "object",
                       "properties": {
-                        "statistics": {
-                          "type": "object",
-                          "properties": {
-                            "elapsed": {
-                              "type": "number"
-                            },
-                            "rows_read": {
-                              "type": "number"
-                            },
-                            "bytes_read": {
-                              "type": "number"
-                            }
-                          }
-                        },
-                        "rows": {
+                        "elapsed": {
                           "type": "number"
                         },
-                        "rows_before_limit_at_least": {
+                        "rows_read": {
                           "type": "number"
                         },
-                        "request_time": {
-                          "type": "string"
-                        },
-                        "duration_ms": {
+                        "bytes_read": {
                           "type": "number"
                         }
                       }
@@ -157,30 +141,11 @@
             "schema": {
               "type": "string",
               "enum": [
-                "mainnet",
+                "arbitrum-one",
+                "base",
                 "bsc",
-                "base"
+                "mainnet"
               ]
-            }
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 500,
-              "default": 10
-            }
-          },
-          {
-            "in": "query",
-            "name": "offset",
-            "schema": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 500,
-              "default": 0
             }
           },
           {
@@ -188,6 +153,22 @@
             "name": "contract",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer",
+              "default": 1
             }
           }
         ],
@@ -244,9 +225,10 @@
                           "network_id": {
                             "type": "string",
                             "enum": [
-                              "mainnet",
+                              "arbitrum-one",
+                              "base",
                               "bsc",
-                              "base"
+                              "mainnet"
                             ]
                           }
                         },
@@ -264,33 +246,16 @@
                         ]
                       }
                     },
-                    "meta": {
+                    "statistics": {
                       "type": "object",
                       "properties": {
-                        "statistics": {
-                          "type": "object",
-                          "properties": {
-                            "elapsed": {
-                              "type": "number"
-                            },
-                            "rows_read": {
-                              "type": "number"
-                            },
-                            "bytes_read": {
-                              "type": "number"
-                            }
-                          }
-                        },
-                        "rows": {
+                        "elapsed": {
                           "type": "number"
                         },
-                        "rows_before_limit_at_least": {
+                        "rows_read": {
                           "type": "number"
                         },
-                        "request_time": {
-                          "type": "string"
-                        },
-                        "duration_ms": {
+                        "bytes_read": {
                           "type": "number"
                         }
                       }
@@ -340,30 +305,11 @@
             "schema": {
               "type": "string",
               "enum": [
-                "mainnet",
+                "arbitrum-one",
+                "base",
                 "bsc",
-                "base"
+                "mainnet"
               ]
-            }
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 500,
-              "default": 10
-            }
-          },
-          {
-            "in": "query",
-            "name": "offset",
-            "schema": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 500,
-              "default": 0
             }
           },
           {
@@ -381,6 +327,22 @@
             "name": "contract",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer",
+              "default": 1
             }
           }
         ],
@@ -431,9 +393,10 @@
                           "network_id": {
                             "type": "string",
                             "enum": [
-                              "mainnet",
+                              "arbitrum-one",
+                              "base",
                               "bsc",
-                              "base"
+                              "mainnet"
                             ]
                           }
                         },
@@ -449,33 +412,16 @@
                         ]
                       }
                     },
-                    "meta": {
+                    "statistics": {
                       "type": "object",
                       "properties": {
-                        "statistics": {
-                          "type": "object",
-                          "properties": {
-                            "elapsed": {
-                              "type": "number"
-                            },
-                            "rows_read": {
-                              "type": "number"
-                            },
-                            "bytes_read": {
-                              "type": "number"
-                            }
-                          }
-                        },
-                        "rows": {
+                        "elapsed": {
                           "type": "number"
                         },
-                        "rows_before_limit_at_least": {
+                        "rows_read": {
                           "type": "number"
                         },
-                        "request_time": {
-                          "type": "string"
-                        },
-                        "duration_ms": {
+                        "bytes_read": {
                           "type": "number"
                         }
                       }
@@ -523,30 +469,11 @@
             "schema": {
               "type": "string",
               "enum": [
-                "mainnet",
+                "arbitrum-one",
+                "base",
                 "bsc",
-                "base"
+                "mainnet"
               ]
-            }
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 500,
-              "default": 10
-            }
-          },
-          {
-            "in": "query",
-            "name": "offset",
-            "schema": {
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 500,
-              "default": 0
             }
           },
           {
@@ -554,6 +481,22 @@
             "name": "order_by",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer",
+              "default": 1
             }
           }
         ],
@@ -610,9 +553,10 @@
                           "network_id": {
                             "type": "string",
                             "enum": [
-                              "mainnet",
+                              "arbitrum-one",
+                              "base",
                               "bsc",
-                              "base"
+                              "mainnet"
                             ]
                           }
                         },
@@ -630,33 +574,16 @@
                         ]
                       }
                     },
-                    "meta": {
+                    "statistics": {
                       "type": "object",
                       "properties": {
-                        "statistics": {
-                          "type": "object",
-                          "properties": {
-                            "elapsed": {
-                              "type": "number"
-                            },
-                            "rows_read": {
-                              "type": "number"
-                            },
-                            "bytes_read": {
-                              "type": "number"
-                            }
-                          }
-                        },
-                        "rows": {
+                        "elapsed": {
                           "type": "number"
                         },
-                        "rows_before_limit_at_least": {
+                        "rows_read": {
                           "type": "number"
                         },
-                        "request_time": {
-                          "type": "string"
-                        },
-                        "duration_ms": {
+                        "bytes_read": {
                           "type": "number"
                         }
                       }
@@ -706,14 +633,15 @@
             "schema": {
               "type": "string",
               "enum": [
-                "mainnet",
+                "arbitrum-one",
+                "base",
                 "bsc",
-                "base"
+                "mainnet"
               ]
             }
           }
         ],
-        "description": "Token Holders by Contract Address",
+        "description": "Token Holders and Supply by Contract Address",
         "security": [
           {
             "bearerAuth": []
