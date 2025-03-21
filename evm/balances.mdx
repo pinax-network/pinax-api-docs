@@ -20,7 +20,7 @@ Retrieves a list of tokens along with the respective balances for the given wall
 | Parameter | Type | Description | Notes |
 |-----------|------|-------------|-------|
 | address | (string, required) | The wallet address to query for token balances. | Must be a valid hexadecimal address. Example: 0x1234abcd... |
-| chain | (string, optional) | Specifies the blockchain network to query. | Use this parameter when you need data from a specific EVM-compatible network. |
+| network_id | (string, optional) | Specifies the blockchain network to query. | Use this parameter when you need data from a specific EVM-compatible network. |
 | limit | (number, optional) | The maximum number of records to return. | Useful for controlling response size and paginating results. |
 | offset | (number, optional) | The number of records to skip before returning results. | Use together with limit for pagination. |
 | contract | (string, optional) | The contract from which results are returned | Use to filter for specific token contracts |
