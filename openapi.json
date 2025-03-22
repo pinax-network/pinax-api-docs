@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Token API (Beta)",
-    "description": "Power your apps with real-time token data.",
+    "description": "Power your apps & AI agents with real-time token data.",
     "version": "0.1.0"
   },
   "servers": [
