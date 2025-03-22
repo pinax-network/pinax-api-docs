@@ -1,0 +1,15 @@
+#### Troubleshooting
+
+To enable logs for the MCP, use the `--verbose true` option.
+
+> ENOENT
+
+Try to use the full path of the command instead:
+- Run `which npx` or `which bunx` to get the path of the command
+- Replace `npx` or `bunx` in the configuration file with the full path
+
+Example: `/home/user/bin/bunx`
+
+> Server disconnected
+
+Double-check your API key otherwise look in your navigator if `https://token-api.service.pinax.network/sse` is reachable.

@@ -28,7 +28,9 @@
               {
                 "group": "MCP",
                 "pages": [
-                  "mcp/claude"
+                  "mcp/claude",
+                  "mcp/cline",
+                  "mcp/cursor"
                 ]
               },
               {
