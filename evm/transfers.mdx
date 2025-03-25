@@ -4,7 +4,6 @@ openapi: 'GET /transfers/evm/{address}'
 sidebarTitle: 'Token Transfers'
 ---
 
-The EVM Transfers endpoint provides access to historical token transfer events for a specified address. This endpoint is ideal for tracking transaction history and analyzing token movements over time.
 ### Endpoint Overview
 Method: `GET`
 
@@ -19,13 +18,13 @@ Retrieves a list of token transfer events associated with the given address.
 | network_id | (string, optional) | Specifies the blockchain network to query. | Use this parameter when you need data from a specific EVM-compatible network. |
 | limit | (integer, optional) | The maximum number of records to return. | Useful for controlling response size and paginating results. |
 | offset | (integer, optional) | The number of records to skip before returning results. | Use together with limit for pagination. |
-| age | (integer, optional) | The number of days in the past to query | Defaults to `30`. Maximum is `180` |
+| age | (integer, optional) | The number of days in the past to query | Defaults to `30`. Maximum is `180`. |
 
 ### Response Parameters
 
 | Parameter | Type | Description | Notes |
 |-----------|------|-------------|-------|
-| block_num | (integer) | The block number of the most recent balance change for the data queried. | Block numbers will differ between blockchains |
+| block_num | (integer) | The block number of the most recent balance change for the data queried. | Block numbers will differ between blockchains. |
 | timestamp | (integer) | The Unix timestamp, in seconds,  of the most recent balance change for the data queried. | Equals the number of seconds elapsed since January 1, 1970, 00:00:00 UTC. |
 | date | (string) | The date of the block from which data was queried. | In the format "YYYY-MM-DD". |
 | contract | (string) | The contract involved in the token transfer. | Returned in hexadecimal. Example: 0x1234abcd... |
