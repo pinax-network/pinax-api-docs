@@ -3,7 +3,7 @@
   "info": {
     "title": "Token API (Beta)",
     "description": "Power your apps & AI agents with real-time token data.",
-    "version": "1.0.0+e69e868 (2025-03-25)"
+    "version": "1.0.0+9570bae (2025-03-25)"
   },
   "servers": [
     {
@@ -192,7 +192,8 @@
             }
           }
         ],
-        "description": "Token Balances by Wallet Address",
+        "summary": "Token Balances by Wallet Address",
+        "description": "The EVM Balances endpoint returns the current balances of native and ERC-20 tokens held by a specified wallet address on an Ethereum-compatible blockchain. The endpoint provides a snapshot of an account’s current token holdings.",
         "security": [
           {
             "bearerAuth": []
@@ -390,7 +391,8 @@
             }
           }
         ],
-        "description": "Token Transfers by Wallet Address",
+        "summary": "Token Transfers by Wallet Address",
+        "description": "The EVM Transfers endpoint provides access to historical token transfer events for a specified address. This endpoint is ideal for tracking transaction history and analyzing token movements over time.",
         "security": [
           {
             "bearerAuth": []
@@ -540,7 +542,7 @@
                 "asc",
                 "desc"
               ],
-              "description": "The order in which to return the results.",
+              "description": "The order in which to return the results: Ascending (asc) or Descending (desc).",
               "default": "desc"
             }
           },
@@ -566,7 +568,8 @@
             }
           }
         ],
-        "description": "Token Holders by Contract Address",
+        "summary": "Token Holders by Contract Address",
+        "description": "The EVM Holders endpoint provides information about the addresses holding a specific token, including each holder’s balance. This is useful for analyzing token distribution for a particular contract.",
         "security": [
           {
             "bearerAuth": []
@@ -732,7 +735,8 @@
             }
           }
         ],
-        "description": "Token Holders and Supply by Contract Address",
+        "summary": "Token Holders and Supply by Contract Address",
+        "description": "The Tokens endpoint delivers contract metadata for a specific ERC-20 token contract from a supported EVM blockchain. Metadata includes name, symbol, number of holders, circulating supply, decimals, and more.",
         "security": [
           {
             "bearerAuth": []
@@ -881,7 +885,7 @@
                 },
                 "example": {
                   "version": "1.0.0",
-                  "commit": "e69e868",
+                  "commit": "9570bae",
                   "date": "2025-03-25",
                   "repo": "pinax-network/pinax-token-api"
                 }
