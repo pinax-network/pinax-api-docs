@@ -4,8 +4,6 @@ openapi: 'GET /holders/evm/{contract}'
 sidebarTitle: 'Token Holders'
 ---
 
-The EVM Holders endpoint provides information about the addresses holding a specific token, including each holder’s balance. This is useful for analyzing token distribution for a particular contract.
-
 ### Endpoint Overview
 Method: GET
 
@@ -20,13 +18,13 @@ Description: Retrieves token holder data for a given token contract address.
 | network_id | (string, optional) | Specifies the blockchain network to query. | Use this parameter when you need data from a specific EVM-compatible network. |
 | limit | (number, optional) | The maximum number of records to return. | Useful for controlling response size and paginating results. |
 | offset | (number, optional) | The number of records to skip before returning results. | Use together with limit for pagination. |
-| order-by | (string, optional) | The order in which results are displayed | Use to order results. Options include `asc` and `desc` |
+| order-by | (string, optional) | The order in which results are displayed | Use to order results. Options include `asc` and `desc`. |
 
 ### Response Parameters
 
 | Parameter | Type | Description | Notes |
 |-----------|------|-------------|-------|
-| block_num | (number) | The block number of the most recent balance change for the data queried. | Block numbers will differ between blockchains |
+| block_num | (number) | The block number of the most recent balance change for the data queried. | Block numbers will differ between blockchains. |
 | timestamp | (number) | The Unix timestamp of the most recent balance change for the data queried. | Equals the number of seconds elapsed since January 1, 1970, 00:00:00 UTC. |
 | date | (string) | The date of the block from which data was queried. | In the format "YYYY-MM-DD". |
 | address | (string) | The address of this token holder record. | Returned in hexadecimal. Example: 0x1234abcd... |
