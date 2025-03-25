@@ -4,9 +4,6 @@ openapi: 'get /tokens/evm/{contract}'
 sidebarTitle: 'Tokens'
 ---
 
-The Tokens API delivers contract metadata for a specific ERC-20 token contract from a supported EVM blockchain.
-
-
 ### Endpoint Overview
 Method: `GET`
 
@@ -31,7 +28,7 @@ Provides metadata for a given token, including its name, symbol, decimals, and t
 | name | (string) | The name of the token. | Results come from sources that may not be on-chain. |
 | decimals | (number) | The number of decimal places of precision for the specified token. | Use together with `total supply` to determine token amount. |
 | symbol | (string) | The number of records to skip before returning results. | Use together with limit for pagination. |
-| total_supply | (string) | The amount of tokens created by the smart contract | Returned as an integer, in the smallest divisible units of the token. |
+| circulating_supply | (string) | The number of tokens circulating. | Returned as an integer, in the smallest divisible units of the token. |
 | network_id | (string) | The number of records to skip before returning results. | Use together with limit for pagination. |
 
 ### Additional Notes
