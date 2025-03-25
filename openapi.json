@@ -11,6 +11,10 @@
       "description": "Token API - Production"
     },
     {
+      "url": "https://token-api.service.pinax.network",
+      "description": "Token API - Dev"
+    },
+    {
       "url": "http://localhost:8000",
       "description": "Token API - Local"
     }
