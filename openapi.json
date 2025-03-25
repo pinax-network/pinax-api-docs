@@ -3,11 +3,11 @@
   "info": {
     "title": "Token API (Beta)",
     "description": "Power your apps & AI agents with real-time token data.",
-    "version": "1.0.0+687cf95 (2025-03-24)"
+    "version": "1.0.0+e69e868 (2025-03-25)"
   },
   "servers": [
     {
-      "url": "https://token-api.service.pinax.network",
+      "url": "https://token-api.thegraph.com",
       "description": "Token API - Production"
     },
     {
@@ -69,6 +69,7 @@
                               "arbitrum-one",
                               "base",
                               "bsc",
+                              "matic",
                               "optimism"
                             ],
                             "default": "mainnet",
@@ -150,6 +151,7 @@
                 "arbitrum-one",
                 "base",
                 "bsc",
+                "matic",
                 "optimism"
               ],
               "default": "mainnet",
@@ -246,6 +248,7 @@
                               "arbitrum-one",
                               "base",
                               "bsc",
+                              "matic",
                               "optimism"
                             ],
                             "default": "mainnet",
@@ -333,6 +336,7 @@
                 "arbitrum-one",
                 "base",
                 "bsc",
+                "matic",
                 "optimism"
               ],
               "default": "mainnet",
@@ -433,6 +437,7 @@
                               "arbitrum-one",
                               "base",
                               "bsc",
+                              "matic",
                               "optimism"
                             ],
                             "default": "mainnet",
@@ -514,6 +519,7 @@
                 "arbitrum-one",
                 "base",
                 "bsc",
+                "matic",
                 "optimism"
               ],
               "default": "mainnet",
@@ -613,6 +619,7 @@
                               "arbitrum-one",
                               "base",
                               "bsc",
+                              "matic",
                               "optimism"
                             ],
                             "default": "mainnet",
@@ -712,6 +719,7 @@
                 "arbitrum-one",
                 "base",
                 "bsc",
+                "matic",
                 "optimism"
               ],
               "default": "mainnet",
@@ -869,9 +877,9 @@
                 },
                 "example": {
                   "version": "1.0.0",
-                  "commit": "687cf95",
-                  "date": "2025-03-24",
-                  "repo": "pinax-network/token-api"
+                  "commit": "e69e868",
+                  "date": "2025-03-25",
+                  "repo": "pinax-network/pinax-token-api"
                 }
               }
             }
