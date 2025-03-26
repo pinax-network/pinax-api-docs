@@ -1,4 +1,4 @@
-# Pinax API Docs
+# Token API Docs
 
 ### Development
 
