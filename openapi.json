@@ -3,16 +3,12 @@
   "info": {
     "title": "Token API (Beta)",
     "description": "Power your apps & AI agents with real-time token data.",
-    "version": "1.1.0+1b5a09d (2025-03-26)"
+    "version": "1.1.2+b11f4bc (2025-03-26)"
   },
   "servers": [
     {
       "url": "https://token-api.thegraph.com",
       "description": "Token API - Production"
-    },
-    {
-      "url": "https://token-api.service.pinax.network",
-      "description": "Token API - Dev"
     },
     {
       "url": "http://localhost:8000",
@@ -924,10 +920,10 @@
                   ]
                 },
                 "example": {
-                  "version": "1.1.0",
-                  "commit": "1b5a09d",
+                  "version": "1.1.2",
+                  "commit": "b11f4bc",
                   "date": "2025-03-26",
-                  "repo": "pinax-network/pinax-token-api"
+                  "repo": "pinax-network/token-api"
                 }
               }
             }

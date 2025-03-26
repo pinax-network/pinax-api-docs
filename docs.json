@@ -1,13 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Token API Docs",
+  "name": "The Graph: Token API (Beta) Docs",
   "colors": {
     "primary": "#6923EB",
     "light": "#8FFFEB",
     "dark": "#0F0F0F"
   },
-  "favicon": "/favicon.png",
+  "favicon": "/favicon.svg",
   "seo": {
     "metatags": {
         "og:image": "https://github.com/user-attachments/assets/05b34ccd-b583-42a4-95cb-72e5b3063c8b",
