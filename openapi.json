@@ -3,7 +3,7 @@
   "info": {
     "title": "Token API (Beta)",
     "description": "Power your apps & AI agents with real-time token data.",
-    "version": "1.1.0+0095681 (2025-03-26)"
+    "version": "1.1.0+1b5a09d (2025-03-26)"
   },
   "servers": [
     {
@@ -150,7 +150,8 @@
             "schema": {
               "type": "string",
               "pattern": "^(0[xX])?[0-9a-fA-F]{40}$",
-              "description": "EVM address to query"
+              "description": "EVM wallet address to query",
+              "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
             },
             "required": true
           },
@@ -345,7 +346,8 @@
             "schema": {
               "type": "string",
               "pattern": "^(0[xX])?[0-9a-fA-F]{40}$",
-              "description": "EVM address to query"
+              "description": "EVM wallet address to query",
+              "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"
             },
             "required": true
           },
@@ -538,7 +540,8 @@
             "schema": {
               "type": "string",
               "pattern": "^(0[xX])?[0-9a-fA-F]{40}$",
-              "description": "EVM contract address to query"
+              "description": "EVM contract address to query",
+              "example": "0xc944e90c64b2c07662a292be6244bdf05cda44a7"
             },
             "required": true
           },
@@ -747,7 +750,9 @@
             "name": "contract",
             "schema": {
               "type": "string",
-              "pattern": "^(0[xX])?[0-9a-fA-F]{40}$"
+              "pattern": "^(0[xX])?[0-9a-fA-F]{40}$",
+              "description": "EVM contract address to query",
+              "example": "0xc944e90c64b2c07662a292be6244bdf05cda44a7"
             },
             "required": true
           },
@@ -770,7 +775,7 @@
             }
           }
         ],
-        "summary": "Token Holders and Supply by Contract Address",
+        "summary": "Token Metadata by Contract",
         "description": "The Tokens endpoint delivers contract metadata for a specific ERC-20 token contract from a supported EVM blockchain. Metadata includes name, symbol, number of holders, circulating supply, decimals, and more.",
         "security": [
           {
@@ -920,9 +925,9 @@
                 },
                 "example": {
                   "version": "1.1.0",
-                  "commit": "0095681",
+                  "commit": "1b5a09d",
                   "date": "2025-03-26",
-                  "repo": "pinax-network/token-api"
+                  "repo": "pinax-network/pinax-token-api"
                 }
               }
             }
